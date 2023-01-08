@@ -8,8 +8,11 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
 	try {
 		// filters - query string
+		const filter = {};
 		const name = req.query.name;
-		const age = req.query.age;
+		const stock = req.query.stock;
+		const price = req.query.price;
+		const tags = req.query.tags;
 
 		// skip - limit
 		const skip = req.query.skip;
@@ -18,20 +21,17 @@ router.get('/', async (req, res, next) => {
 		// field selecion
 		const fields = req.query.fields; // api/ads?fields=name-_id
 
-		// ordenacion
+		// sort list
 		const sort = req.query.sort;// /api/ads?sort=-age%20name
 
-		const filter = {}; // si vacio, devuleve todos los agentes.
+	
+		filter.name = name === true? name : {};
+		filter.stock = stock === true? stock : {};
+		filter.price = price === true ? price : {};
+		filter.tags = tags === true ? tags : {};
 
-		if (name) { // /api/agentes?name=Smith
-			filter.name = name;
-		}
 
-		if (age) { // /api/agentes?age=35
-			filter.age = age;
-		}
-
-		const ads = await Ad.lista(filter, skip, limit, fields, sort); 
+		const ads = await Ad.list(filter, skip, limit, fields, sort); 
 
 		res.json({results: ads});
 

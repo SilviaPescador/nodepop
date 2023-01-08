@@ -8,19 +8,18 @@ const adSchema = mongoose.Schema({
 	stock: {type: Boolean, index: true}, 
 	price: {type: Number, index: true},
 	photo: String,
-	tags:  {type: Array, index:true},
+	tags:  {type: Array, index: true},
 
 });  
 
 
-adSchema.statics.lista = function(filter, skip, limit, fields, sort)  {
+adSchema.statics.list = function(filter, skip, limit, fields, sort)  {
 	const query = Ad.find(filter); 
 	query.skip(skip);
 	query.limit(limit);
 	query.select(fields);
 	query.sort(sort);
 	
-
 	return query.exec() 
 }
 

@@ -4,8 +4,6 @@
 
 const readline = require('readline')
 
-
-// cargamos los modelos que vamos a usar
 const Ad = require('./models/Ad')
 
 
@@ -35,8 +33,8 @@ async function initAds() {
 
 	
 	const inserted = await Ad.insertMany([
-		{"name": "Bike", "stock": true, "price": 230.15, "photo": "bike.jpg", "tags": ["lifestyle", "motor"]},
-		{"name": "IPhone 10", "stock": false, "price": 890.00, "photo": "iphone.jpg", "tags": ["lifestyle", "tech"]},
+		{"name": "Bike", "stock": true, "price": 230, "photo": "bike.jpg", "tags": ["lifestyle", "motor"]},
+		{"name": "IPhone 10", "stock": false, "price": 890, "photo": "iphone.jpg", "tags": ["lifestyle", "tech"]},
 
 	]);
 	console.log(`Starting with ${inserted.length} ads.`)
