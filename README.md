@@ -30,7 +30,7 @@ Ad list:
 
 GET /api/ads
 
-{
+```{
 	"results": [
 		{
 			"_id": "63bb31d1c7320566205dc106",
@@ -57,4 +57,4 @@ GET /api/ads
 			"__v": 0
 		}
 	]
-}
+}```
